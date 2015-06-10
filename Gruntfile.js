@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     uglify: {
       my_target: {
-        file: {
+        files: {
           'public/dist/built.min.js': ['public/dist/built.js']
         }
       }
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'concat',
-    'uglify',
+    'uglify:my_target',
     'cssmin'
   ]);
 
