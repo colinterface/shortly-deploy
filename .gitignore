@@ -5,12 +5,10 @@ azure.err
 iisnode.yml
 node_modules
 *.sqlite
+public/dist/*
 
 # Icon must ends with two \r.
 Icon
-
-
-
 
 # Floobits
 .floo
