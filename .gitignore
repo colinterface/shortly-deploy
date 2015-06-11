@@ -6,6 +6,7 @@ iisnode.yml
 node_modules
 *.sqlite
 public/dist/*
+db/*
 
 # Icon must ends with two \r.
 Icon
