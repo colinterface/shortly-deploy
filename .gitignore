@@ -7,7 +7,6 @@ node_modules
 *.sqlite
 public/dist/*
 db/*
-app/config.js
 
 # Icon must ends with two \r.
 Icon
