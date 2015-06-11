@@ -132,11 +132,4 @@ module.exports = function(grunt) {
     'build',
     'upload'
   ]);
-
-  // grunt.registerTask('default', [
-  //   'test',
-  //   'build',
-  //   'deploy'
-  // ]);
-
 };
