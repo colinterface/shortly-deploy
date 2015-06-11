@@ -1,6 +1,10 @@
 // var Bookshelf = require('bookshelf');
 var mongoose = require('mongoose');
 var path = require('path');
+var bcrypt = require('bcrypt-nodejs');
+var Promise = require('bluebird');
+var crypto = require('crypto');
+
 
 mongoose.connect('mongodb://localhost/shortly');
 
@@ -23,13 +27,25 @@ var userSchema = mongoose.Schema({
   password: String
 });
 
-userSchema.methods.encryptPassword = function() {
+userSchema.methods.hashPassword = function(plaintext) {
+  var cipher = Promise.promisify(bcrypt.hash);
+  var context = this;
+  return cipher(plaintext, null, null).bind(this)
+    .then(function(hash) {
+      context.password = hash;
+    });
 };
 
-userSchema.methods.checkPassword = function() {
+userSchema.methods.comparePassword = function(attemptedPassword, callback) {
+  bcrypt.compare(attemptedPassword, this.password, function(err, isMatch) {
+    callback(isMatch);
+  });
 };
 
 linkSchema.methods.shortenUrl = function() {
+  var shasum = crypto.createHash('sha1');
+  shasum.update(this.url);
+  this.code = shasum.digest('hex').slice(0, 5);
 };
 
 var Link = mongoose.model('Link', linkSchema);
