@@ -1,4 +1,3 @@
-// var Bookshelf = require('bookshelf');
 var mongoose = require('mongoose');
 var path = require('path');
 var bcrypt = require('bcrypt-nodejs');
@@ -19,7 +18,10 @@ var linkSchema = mongoose.Schema({
   base_url: String,
   code: String,
   title: String,
-  visits: Number
+  visits: {
+    type: Number,
+    default: 0
+  }
 });
 
 var userSchema = mongoose.Schema({
