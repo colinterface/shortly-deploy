@@ -6,7 +6,7 @@ var crypto = require('crypto');
 
 
 if (process.env.NODE_ENV === 'production') {
-  mongoose.connect(process.env.MONGO_PORT);
+  mongoose.connect(process.env.MONGOLAB_URI);
 } else {
   mongoose.connect('mongodb://localhost/shortly');
 }
