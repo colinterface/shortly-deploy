@@ -17,7 +17,7 @@
     "mocha": "^1.17.1",
     "mongodb": "^2.0.33",
     "mongoose": "~3.8.8",
-    "request": "^2.34.0",
+    "request": "^2.34.0"
   },
   "devDependencies": {
     "grunt": "^0.4.4",
